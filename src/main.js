@@ -1,1 +1,2 @@
-const asds
+const aaa;
+return aaa;
