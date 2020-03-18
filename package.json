@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +26,15 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
+    "chai": "^4.2.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^1.0.0-rc.13"
+    "husky": "^1.0.0-rc.13",
+    "mocha": "^7.1.0"
   },
   "dependencies": {
     "typescript": "^3.8.3"
