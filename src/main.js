@@ -1,20 +1,10 @@
-/*
-Desafio FizzBuzz
-Escreva uma lib que receba um número e:
-Se o número for divisível por 3, no lugar do número escreva 'Fizz' - X
-Se o número for divisível por 5, no lugar do número escreva 'Buzz' - X
-Se o número for divisível por 3 e 5, no lugar do número escreva 'FizzBuzz' - X
-Se não for múltiplo de nada, retorna o número
- */
+export const search = (query, type) =>
+  fetch(`https://api.spotify.com/v1/search?query=${query}&type=${type}`)
+    .then(res => res.json());
 
 
-const FizzBuzz = (num) => {
-  if (num === 0 ) return 0;
-  if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz';
-  if (num % 3 === 0) return 'Fizz';
-  if (num % 5 === 0) return 'Buzz';
 
-  return num
-}
-
-export default FizzBuzz;
+export const searchAlbums = () => {}
+export const searchArtists = () => {}
+export const searchTracks = () => {}
+export const searchPlaylists = () => {}

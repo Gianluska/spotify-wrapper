@@ -1,35 +1,77 @@
-/*
-Desafio FizzBuzz
-Escreva uma lib que receba um número e:
-Se o número for divisível por 3, no lugar do número escreva 'Fizz' - X
-Se o número for divisível por 5, no lugar do número escreva 'Buzz' - X
-Se o número for divisível por 3 e 5, no lugar do número escreva 'FizzBuzz' - X
-Se não for múltiplo de nada, retorna o número
- */
+import chai, { expect } from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import sinonStubPromise from 'sinon-stub-promise';
+import { search, searchAlbums, searchArtists, searchTracks, searchPlaylists } from '../src/main';
+chai.use(sinonChai);
+sinonStubPromise(sinon);
 
-import { expect } from 'chai';
-import FizzBuzz from '../src/main';
+global.fetch = require('node-fetch');
 
-describe('FizzBuzz', () => {
-  it('should return `Fizz` when multiple of 3', () => {
-    expect(FizzBuzz(3)).to.be.equal('Fizz');
-    expect(FizzBuzz(6)).to.be.equal('Fizz');
+describe('Spotify Wrapper', () => {
+
+  describe('Smoke tests', () => {
+
+    it('should exists the search method', () => {
+      expect(search).to.be.exist;
+    });
+
+    it('should exists the searchAlbums method', () => {
+      expect(searchAlbums).to.be.exist;
+    });
+
+    it('should exists the searchArtists method', () => {
+      expect(searchArtists).to.be.exist;
+    });
+
+    it('should exists the searchTracks method', () => {
+      expect(searchTracks).to.be.exist;
+    });
+
+    it('should exists the searchPlaylists method', () => {
+      expect(searchPlaylists).to.be.exist;
+    });
+
   });
 
-  it('should return `Buzz` when multiple of 5', () => {
-    expect(FizzBuzz(5)).to.be.equal('Buzz');
-    expect(FizzBuzz(10)).to.be.equal('Buzz');
-  });
+  describe('Generic Searchs', () => {
+    let fetchedStub;
 
-  it('sould return `FizzBuzz` when multiple of 3 and 5', () => {
-    expect(FizzBuzz(15)).to.be.equal('FizzBuzz');
-  });
+    beforeEach(() => {
+      fetchedStub = sinon.stub(global, 'fetch');
+      fetchedStub.returnsPromise();
+    });
 
-  it('sould return the number when non-multiple', () => {
-    expect(FizzBuzz(7)).to.be.equal(7);
-  });
+    afterEach(() => {
+      fetchedStub.restore();
+    });
 
-  it('sould return zero when zero', () => {
-    expect(FizzBuzz(0)).to.be.equal(0);
+    it('should call fetch function', () => {
+      search();
+      expect(fetchedStub).to.have.been.calledOnce;
+
+    });
+
+    it('should recieve the correct url to fetch', () => {
+      context('passing one type', () => {
+        search('Incubus', 'artist');
+        expect(fetchedStub).to.have.been
+          .calledWith('https://api.spotify.com/v1/search?query=Incubus&type=artist');
+
+        search('Incubus', 'album')
+        expect(fetchedStub).to.have.been
+          .calledWith('https://api.spotify.com/v1/search?query=Incubus&type=album');
+
+      });
+
+      context('passing more than one type', () => {
+
+        search('Incubus', ['artist', 'album']);
+
+        expect(fetchedStub).to.have.been
+          .calledWith('https://api.spotify.com/v1/search?query=Incubus&type=artist,album');
+      });
+
+    });
   });
 });
