@@ -1,7 +1,7 @@
 {
-  "name": "js-tdd-course",
+  "name": "spotify-wrapper",
   "version": "1.0.0",
-  "description": "Nossa biblioteca do curso de JS com TDD na prática.",
+  "description": "A wrapper to work with the Spotify Web API.",
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gianluska/js-tdd-course.git"
+    "url": "git+https://github.com/Gianluska/spotify-wrapper.git"
   },
   "keywords": [
     "js",
@@ -29,9 +29,9 @@
   "author": "Gianlucca Claudino <gianluccaclaudino@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Gianluska/js-tdd-course/issues"
+    "url": "https://github.com/Gianluska/spotify-wrapper/issues"
   },
-  "homepage": "https://github.com/Gianluska/js-tdd-course#readme",
+  "homepage": "https://github.com/Gianluska/spotify-wrapper#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
