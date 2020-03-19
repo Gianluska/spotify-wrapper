@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint && npm run test:coverage",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test"
@@ -57,6 +58,7 @@
     "sinon-stub-promise": "^4.0.0"
   },
   "dependencies": {
+    "babel-node": "0.0.1-security",
     "typescript": "^3.8.3"
   }
 }
