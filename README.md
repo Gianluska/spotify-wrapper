@@ -225,6 +225,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 |:---------------------:|
 |  [Willian Justen](https://github.com/willianjusten/)   |
 
+| ![Gianlucca Claudino](https://avatars1.githubusercontent.com/u/47386889?s=460&u=7f674734f19510ea357d755ff5336119ce0ae920&v=4)|
+|:---------------------:|
+|  [Gianlucca Claudino](https://github.com/Gianluska/)   |
+
 See also the list of [contributors](https://github.com/willianjusten/spotify-wrapper/contributors) who participated in this project.
 
 ## License
