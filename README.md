@@ -223,7 +223,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 | ![Willian Justen](https://avatars2.githubusercontent.com/u/3991845?v=3&s=150)|
 |:---------------------:|
-|  [Willian Justen](https://github.com/willianjusten/)   || ![Gianlucca Claudino](https://avatars1.githubusercontent.com/u/47386889?v=3&s=150)|
+|  [Willian Justen](https://github.com/willianjusten/)   | | ![Gianlucca Claudino](https://avatars1.githubusercontent.com/u/47386889?v=3&s=150)|
 |:---------------------:|
 |  [Gianlucca Claudino](https://github.com/Gianluska/)   |
 
