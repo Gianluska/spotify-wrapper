@@ -1,6 +1,6 @@
 # Spotify Wrapper
 
-[![Build Status](https://travis-ci.com/Gianluska/Spotify-Wrapper.svg?branch=master)](https://travis-ci.com/Gianluska/Spotify-Wrapper) [![Coverage Status](https://coveralls.io/repos/github/Gianluska/Spotify-Wrapper/badge.svg?branch=master)](https://coveralls.io/github/Gianluska/Spotify-Wrapper?branch=master)
+[![Build Status](https://travis-ci.org/willianjusten/spotify-wrapper.svg?branch=master)](https://travis-ci.org/willianjusten/spotify-wrapper) [![Coverage Status](https://coveralls.io/repos/github/willianjusten/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/willianjusten/spotify-wrapper?branch=master)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
@@ -221,11 +221,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-| ![Willian Justen](https://avatars2.githubusercontent.com/u/3991845?v=3&s=150)|
-|:---------------------:|
-|  [Willian Justen](https://github.com/willianjusten/)   | | ![Gianlucca Claudino](https://avatars1.githubusercontent.com/u/47386889?v=3&s=150)|
-|:---------------------:|
-|  [Gianlucca Claudino](https://github.com/Gianluska/)   |
+| ![Willian Justen](https://avatars2.githubusercontent.com/u/3991845?v=3&s=150) | ![Gianlucca Claudino](https://avatars2.githubusercontent.com/u/47386889?v=3&s=150) |
+|:-----------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
+|              [Willian Justen](https://github.com/willianjusten/)              |                 [Gianlucca Claudino](https://github.com/Gianluska/)                |
 
 See also the list of [contributors](https://github.com/willianjusten/spotify-wrapper/contributors) who participated in this project.
 
