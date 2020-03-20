@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Wrapper Test</title>
+</head>
+<body>
+
+<div id="albums"></div>
+
+<script src="../dist/spotify-wrapper.umd.js"></script>
+
+<script>
+  const spotify = new SpotifyWrapper({
+    token: 'BQDo5gdri0GdyKQjKYfoQPTOEoNR6Thz0mh3V9UfFpO-PDWr3zmGXPbIMADtiFl14uKMARd81pS3iCmTv5qovkOXnKtFzarTtfHu5jRqoyHa9e9Iw43PenfL9QH9bHLiMmu1Qbs08B7IwOdFB0uf0koeB_HrCsC8ldqWLT630pNhpvsY'
+  })
+
+  const albums = spotify.search.albums('supercombo');
+  const albumsEl = document.getElementById('albums');
+
+  albums
+    .then(data => {
+      markup = data.albums.items.map(item =>
+        `<img src='${item.images[0].url}' alt='${item.name}' />`
+      ).join('');
+
+      albumsEl.innerHTML = markup;
+    })
+</script>
+</body>
+</html>

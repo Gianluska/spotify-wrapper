@@ -1,19 +1,28 @@
 {
   "name": "spotify-wrapper",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "A wrapper to work with the Spotify Web API.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "clear": "rimraf lib",
+    "build": "./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:all": "npm run clear && npm run build && npm run build:umd && npm run build:umd:min",
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint && npm run test:coverage",
+    "prepush": "npm run lint",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
-    "test:coverage": "nyc npm test"
+    "test:coverage": "nyc npm test",
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "prepublish": "npm run build:all"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "nyc": {
-    "functions": 80,
-    "lines": 80,
-    "check-coverage": true,
     "reporter": [
       "text",
       "html"
@@ -38,27 +47,24 @@
   },
   "homepage": "https://github.com/Gianluska/spotify-wrapper#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.23.0",
-    "@typescript-eslint/parser": "^2.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "chai": "^4.2.0",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^1.0.0-rc.13",
-    "mocha": "^7.1.0",
-    "node-fetch": "^2.6.0",
-    "nyc": "^15.0.0",
-    "sinon": "^9.0.1",
-    "sinon-chai": "^3.5.0",
-    "sinon-stub-promise": "^4.0.0"
-  },
-  "dependencies": {
-    "babel-node": "0.0.1-security",
-    "typescript": "^3.8.3"
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-register": "^6.24.0",
+    "chai": "^3.5.0",
+    "coveralls": "^2.13.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "husky": "^0.11.9",
+    "mocha": "^3.2.0",
+    "node-fetch": "^1.6.3",
+    "nyc": "^10.2.0",
+    "rimraf": "^2.6.1",
+    "sinon": "^6.1.3",
+    "sinon-chai": "^3.2.0",
+    "webpack": "^2.4.1"
   }
 }
